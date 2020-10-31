@@ -2,5 +2,3 @@
 
 Team Name:  <br />
 Team Members:  <br />
-
-Testing Friday Night
