@@ -6,4 +6,5 @@ always use tab for indentation
 Team Name:  <br />
 Team Members:  <br />
 
+- Minh Bui
 - Neil Balch
