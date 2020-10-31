@@ -8,4 +8,5 @@ Team Members:  <br />
 
 - Minh Bui
 - Neil Balch
+- Shivani Sista
 - Vedad Bassari
