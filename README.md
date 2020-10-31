@@ -3,7 +3,7 @@
 
 always use tab for indentation
 
-Team Name:  <br /> 2
+Team Name:  <br />
 Team Members:  <br />
 
 - Minh Bui
