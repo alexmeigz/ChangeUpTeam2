@@ -1,10 +1,10 @@
 #include "pole.h"
 
-class TTT 
+class TicTacToe
 {
 	public:
-		TTT();
+		TicTacToe();
 
 	private:
-
+		
 };

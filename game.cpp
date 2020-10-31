@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-#include "TTT.h" // stands for tic tac toe
+#include "TicTacToe.h" // stands for tic tac toe
 
 int main()
 {
-	TTT gameBoard = TTT(); //initialize game
+	TicTacToe gameBoard = TicTacToe(); //initialize game
 	
 	//change game setting (e.g. pvp or pve)
 
@@ -15,13 +14,13 @@ int main()
 		while(gameBoard.action > 0)
 		{
 			gameBoard.display(); //diaplay game board
-			string input;
-			cin >> input;
+			std::string input;
+			std::cin >> input;
 			gameBoard.play(input); //check if userInput is valid; subtract action by 1
 		}
 		gameBoard.changeSide() //reset action, change team tag
 	}
 
-	cout << gameBoard.victory() << "wins";
+	std::cout << gameBoard.victory() << "wins";
 	return 1;
 }
