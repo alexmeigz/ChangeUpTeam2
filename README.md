@@ -12,4 +12,5 @@ Team Members:  <br />
 - Shivani Sista
 - Vedad Bassari
 - Erin DeLong
+- Jackie Chen
 
