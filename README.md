@@ -1,11 +1,8 @@
 # Change Up Project: Team 2
 
-
-always use tab for indentation
-
-Team Name:  <br />
-Team Members:  <br />
-
+Team Name:
+<br>
+Team Members:
 
 - Minh Bui
 - Neil Balch
@@ -14,3 +11,7 @@ Team Members:  <br />
 - Erin DeLong
 - Jackie Chen
 - Zach Han
+
+## Development style guide
+
+- Use tabs for indentation as opposed to spaces
