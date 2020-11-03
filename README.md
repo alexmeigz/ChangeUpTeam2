@@ -13,4 +13,4 @@ Team Members:  <br />
 - Vedad Bassari
 - Erin DeLong
 - Jackie Chen
-
+- Zach Han
