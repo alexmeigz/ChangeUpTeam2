@@ -11,6 +11,7 @@ Team Members:
 - Erin DeLong
 - Jackie Chen
 - Zach Han
+- Anushka Lodha
 
 ## Development style guide
 
