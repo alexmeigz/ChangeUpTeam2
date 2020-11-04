@@ -6,7 +6,7 @@
 int main()
 {
 	TicTacToe gameBoard = TicTacToe(); //initialize game
-	
+	// say something
 	//change game setting (e.g. pvp or pve)
 
 	while("" == gameBoard.victory()) //check if anyone win
