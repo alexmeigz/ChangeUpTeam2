@@ -12,6 +12,7 @@ Team Members:
 - Jackie Chen
 - Zach Han
 - Anushka Lodha
+- Sean Song
 
 ## Development style guide
 
