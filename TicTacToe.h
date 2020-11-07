@@ -3,9 +3,9 @@
 class TicTacToe
 {
 	public:
-		 TicTacToe(); // Vedad
-		 void checkVictory();
-		 int getVictory();
+		TicTacToe(); // Vedad
+		void checkVictory();
+		int getVictory();
 
 		void viewAll();
 		void viewTop();
