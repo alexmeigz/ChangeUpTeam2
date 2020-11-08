@@ -36,15 +36,14 @@ class TicTacToe
 		int checkVictoryDiagonal(int teamSide); // check all (22) diagonal rows; 6 6 6 4 (I don't know how to describe them with words).
 
 		// Stores the state of the game board
-		// For each deque<int>, index 0 is the bottom and index 2 is top of each stack.
-		// For the entire field, [0][0] is bottom left and [2][2] is top right.
+		// * For each deque<int>, index 0 is the bottom and index 2 is top of each stack.
+		// * For the entire field, [0][0] is bottom left and [2][2] is top right.
 		std::deque<int> field[3][3];
 
 		// Flag determining whose turn it is:
 		int teamSide;
 
-		// Decrementing counter for keeping track of how many actions are left in
-		// the player's turn.
+		// Decrementing counter for keeping track of how many actions are left in the player's turn.
 		int actionsLeft;
 
 		// Stores whether or not there has been a victory and which team has won.
