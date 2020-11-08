@@ -4,9 +4,8 @@ class TicTacToe
 {
 	public:
 		TicTacToe(); // Vedad
-		void checkVictory();
-		int getVictory();
 
+		// Prints different ASCII-art-esque maps of the game board.
 		void viewAll();
 		void viewTop();
 		void viewSide(int side); // int represents which side to look at
@@ -21,9 +20,12 @@ class TicTacToe
 
 		int getActionsLeft(); // Minh
 		int getTeamSide(); // Minh
+		int getVictory();
 
 	private:
+		// These functions should only be called from within this class.
 		void changeTurn(); //Phillip
+		void checkVictory();
 
 		// Stores the state of the game board
 		// * Index 0 is the bottom and index 2 is top of each stack.
