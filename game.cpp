@@ -2,22 +2,31 @@
 #include <string>
 
 #include "TicTacToe.h" // stands for tic tac toe
+TicTacToe gameBoard = TicTacToe(); //initialize game
+
+void checkInput(std::string input)
+{
+
+}
 
 int main()
 {
-	TicTacToe gameBoard = TicTacToe(); //initialize game
-	
-	//change game setting (e.g. pvp or pve)
-
-	while("" == gameBoard.victory()) //check if anyone win
+	while(0 == gameBoard.getVictory()) //check if anyone win; 0 means nobody wins
 	{
-		while(gameBoard.action > 0)
+		gameBoard.display(); //diaplay game board
+		if(1 == gameBoard.getTeamSide())
 		{
-			gameBoard.display(); //diaplay game board
-			std::string input;
-			std::cin >> input;
-			gameBoard.play(input); //check if userInput is valid; subtract action by 1
+			std::cout << "Your command blue" << endl;
 		}
+		else
+		{
+			std::cout << "Your command red" << endl;
+		}
+
+		std::string input;
+		std::cin >> input; // "action" "X Cor" "Y Cor"; no leading space; one space between each parmater; ad stands for "add", re stands for "remove"
+		checkInput(input); //check if userInput is valid; subtract action by 1
+
 		gameBoard.changeSide() //reset action, change team tag
 	}
 
