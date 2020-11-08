@@ -19,7 +19,15 @@ class TicTacToe
 		void changeSide(); //Phillip
 
 	private:
-		std::deque<int>[3][3] field; // index 0 is bottom; index 2 is top
-		int teamSide; // 1 is blue; -1 is red; 0 is none
+		// Stores the state of the game board
+		// * Index 0 is the bottom and index 2 is top of each stack.
+		std::deque<int> field[3][3];
+		// Flag determining whose turn it is:
+		// * 1 is the blue alliance
+		// * -1 is the red alliance
+		// * 0 is for when the game is over and someone has won
+		int teamSide;
+		// Decrementing counter for keeping track of how many actions are left in
+		// the player's turn.
 		int actionLeft;
 };
