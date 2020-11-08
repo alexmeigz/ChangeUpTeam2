@@ -9,16 +9,22 @@ class TicTacToe
 
 		void viewAll();
 		void viewTop();
-		void viewSide(int side); // int represent which side to look at
+		void viewSide(int side); // int represents which side to look at
 
+		// These functions add/remove a ball from the field and:
+		// * Decrement actionsLeft
+		// * Call checkVictory()
+		// * IF victory == 0 AND actionsLeft == 0
+		//   * Call changeTurn()
 		bool add(int x, int y); // Anushka
 		bool remove(int x, int y); // Anushka
 
-		int getActionLeft(); // Minh
+		int getActionsLeft(); // Minh
 		int getTeamSide(); // Minh
-		void changeSide(); //Phillip
 
 	private:
+		void changeTurn(); //Phillip
+
 		// Stores the state of the game board
 		// * Index 0 is the bottom and index 2 is top of each stack.
 		std::deque<int> field[3][3];
@@ -29,5 +35,7 @@ class TicTacToe
 		int teamSide;
 		// Decrementing counter for keeping track of how many actions are left in
 		// the player's turn.
-		int actionLeft;
+		int actionsLeft;
+		// Stores whether or not there has been a victory and which team has won.
+		int victory;
 };

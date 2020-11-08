@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include "TicTacToe.h"
 
-#include "TicTacToe.h" // stands for tic tac toe
 TicTacToe gameBoard = TicTacToe(); //initialize game
 
+// Validates a user-input and calls the applicable TicTacToe functions.
 void checkInput(std::string input)
 {
 
@@ -26,8 +27,6 @@ int main()
 		std::string input;
 		std::cin >> input; // "action" "X Cor" "Y Cor"; no leading space; one space between each parmater; ad stands for "add", re stands for "remove"
 		checkInput(input); //check if userInput is valid; subtract action by 1
-
-		gameBoard.changeSide() //reset action, change team tag
 	}
 
 	std::cout << gameBoard.victory() << "wins";
