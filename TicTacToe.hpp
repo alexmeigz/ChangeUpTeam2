@@ -31,7 +31,7 @@ class TicTacToe
 		void changeTurn(); //Phillip
 		void checkVictory();
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
-		int checkVictoryHorizontal(int teamSide); // check all (18) horizontal rows; 9 for left to right, 9 for front to back.
+		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
 		int checkVictoryVertical(int teamSide); // check all (9) vertical rows; 9 for bottom to top.
 		int checkVictoryDiagonal(int teamSide); // check all (22) diagonal rows; 6 6 6 4 (I don't know how to describe them with words).
 
