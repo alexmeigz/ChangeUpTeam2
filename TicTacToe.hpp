@@ -44,7 +44,7 @@ class TicTacToe
 		int teamSide;
 
 		// Decrementing counter for keeping track of how many actions are left in the player's turn.
-		int actionsLeft;
+		int actionsLeft; // Erin
 
 		// Stores whether or not there has been a victory and which team has won.
 		int victory;
