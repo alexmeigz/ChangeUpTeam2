@@ -24,7 +24,7 @@ class TicTacToe
 
 		int getActionsLeft(); // Minh
 		int getTeamSide(); // Minh
-		int getVictory();
+		int getVictory(); // Erin
 
 	private:
 		// These functions should only be called from within this class.
@@ -44,7 +44,7 @@ class TicTacToe
 		int teamSide;
 
 		// Decrementing counter for keeping track of how many actions are left in the player's turn.
-		int actionsLeft; // Erin
+		int actionsLeft; 
 
 		// Stores whether or not there has been a victory and which team has won.
 		int victory;
