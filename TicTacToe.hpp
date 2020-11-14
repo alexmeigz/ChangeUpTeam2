@@ -24,7 +24,9 @@ class TicTacToe
 
 		int getActionsLeft(); // Minh
 		int getTeamSide(); // Minh
-		int getVictory(); // Erin
+		int getVictory() {
+			return victory;
+		}
 
 	private:
 		// These functions should only be called from within this class.
