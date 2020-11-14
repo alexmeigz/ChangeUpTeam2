@@ -1,26 +1,37 @@
 #include <iostream>
 #include <string>
+#include "TicTacToe.hpp"
 
-#include "TicTacToe.h" // stands for tic tac toe
+TicTacToe gameBoard; //initialize game
+
+// Validates a user-input and calls the applicable TicTacToe functions.
+void checkInput(std::string input)
+{
+
+}
 
 int main()
 {
-	TicTacToe gameBoard = TicTacToe(); //initialize game
-	
-	//change game setting (e.g. pvp or pve)
-
-	while("" == gameBoard.victory()) //check if anyone win
+	while(gameBoard.getVictory() == 0) // Check if anyone has won.
 	{
-		while(gameBoard.action > 0)
-		{
-			gameBoard.display(); //diaplay game board
-			std::string input;
-			std::cin >> input;
-			gameBoard.play(input); //check if userInput is valid; subtract action by 1
-		}
-		gameBoard.changeSide() //reset action, change team tag
+		// TODO: Replace with proper selection UI for which view the player wants to see.
+		gameBoard.viewAll(); // Display game board
+
+		if(gameBoard.getTeamSide() == 1)
+			std::cout << "Your command blue! ";
+		else
+			std::cout << "Your command red! ";
+
+		std::cout << "You have " << gameBoard.getActionsLeft() << " actions left in your turn." << std::endl;
+		std::cout << "Remember to input a command in the format \"[ACTION] [COORD]\""
+									"where [ACTION] is either \"ad\" or \"rm\" and [COORD] is a"
+									"comma-separated list of integers from 0-2." << std::endl;
+
+		std::string input;
+		std::cin >> input; // "action" "X Cor" "Y Cor"; no leading space; one space between each parmater; ad stands for "add", rm stands for "remove"
+		checkInput(input);
 	}
 
-	std::cout << gameBoard.victory() << "wins";
+	std::cout << (gameBoard.getVictory() == 1 ? "Blue" : "Red") << "wins!" << std::endl;
 	return 1;
 }

@@ -1,10 +1,18 @@
 # Change Up Project: Team 2
 
+Team *xos*:
 
-always use tab for indentation
+- Minh Bui
+- Neil Balch
+- Shivani Sista
+- Vedad Bassari
+- Erin DeLong
+- Jackie Chen
+- Zach Han
+- Anushka Lodha
+- Sean Song
 
-Team Name:  <br />
-Team Members:  <br />
+## Development style guide
 
 - Minh Bui
 - Neil Balch
