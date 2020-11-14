@@ -40,6 +40,7 @@ class TicTacToe
 		// Stores the state of the game board
 		// * For each deque<int>, index 0 is the bottom and index 2 is top of each stack.
 		// * For the entire field, [0][0] is bottom left and [2][2] is top right.
+		// First bracket indicates y coordinate, second bracket indicates x coordinate
 		std::deque<int> field[3][3];
 
 		// Flag determining whose turn it is:
