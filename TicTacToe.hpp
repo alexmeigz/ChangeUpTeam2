@@ -10,7 +10,7 @@ class TicTacToe
 		TicTacToe(); // Vedad
 
 		// Prints different ASCII-art-esque maps of the game board.
-		void viewAll();
+		void viewAll(); // Vedad
 		void viewTop();
 		void viewSide(int side); // int represents which side to look at
 
@@ -24,15 +24,17 @@ class TicTacToe
 
 		int getActionsLeft(); // Minh
 		int getTeamSide(); // Minh
-		int getVictory();
+		int getVictory() {
+			return victory;
+		}
 
 	private:
 		// These functions should only be called from within this class.
-		void changeTurn(); //Phillip
-		void checkVictory();
+		void changeTurn(); // Phillip
+		void checkVictory(); // Minh
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
 		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
-		int checkVictoryVertical(int teamSide); // check all (9) vertical rows; 9 for bottom to top.
+		int checkVictoryVertical(int teamSide); // (Shivani) check all (9) vertical rows; 9 for bottom to top.
 		int checkVictoryDiagonal(int teamSide); // check all (22) diagonal rows; 6 6 6 4 (I don't know how to describe them with words).
 
 		// Stores the state of the game board
