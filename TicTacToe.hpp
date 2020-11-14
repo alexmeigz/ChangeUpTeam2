@@ -38,10 +38,19 @@ class TicTacToe
 		// These functions should only be called from within this class.
 		void changeTurn(); //Phillip
 		void checkVictory() {
-			int blue = 1,red = -1;
-			blue = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
-			red = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
-			blue > red ? "Blue wins" : "Red wins";
+			int blue = 1,red = -1,blue_points,red_points;
+			blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
+			red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+			if(blue_points == 4) {
+				victory = 1;
+			}
+			else if(red_points = 4) {
+				victory = -1;
+			}
+			else {
+				blue > red ? victory = 1 : victory = -1;
+			}			
+			
 		}
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
 		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
