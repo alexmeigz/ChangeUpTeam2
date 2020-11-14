@@ -37,7 +37,12 @@ class TicTacToe
 	private:
 		// These functions should only be called from within this class.
 		void changeTurn(); //Phillip
-		void checkVictory();
+		void checkVictory() {
+			int blue = 1,red = -1;
+			blue = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
+			red = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+			blue > red ? "Blue wins" : "Red wins";
+		}
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
 		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
 		int checkVictoryVertical(int teamSide); // (Shivani) check all (9) vertical rows; 9 for bottom to top.
