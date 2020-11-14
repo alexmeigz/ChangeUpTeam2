@@ -19,6 +19,8 @@ class TicTacToe
 		// * Call checkVictory()
 		// * IF victory == 0 AND actionsLeft == 0
 		//   * Call changeTurn()
+		//
+		// Returns true if the action is valid, false if it wasn't.
 		bool add(int x, int y); // Anushka
 		bool remove(int x, int y); // Anushka
 
