@@ -46,10 +46,7 @@ class TicTacToe
 			}
 			else if(red_points = 4) {
 				victory = -1;
-			}
-			else {
-				blue > red ? victory = 1 : victory = -1;
-			}			
+			}		
 			
 		}
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
