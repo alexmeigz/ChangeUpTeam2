@@ -1,6 +1,5 @@
 #include "TicTacToe.hpp"
 #include <time.h>
-#include <iostream>
 
 TicTacToe::TicTacToe()
 {
