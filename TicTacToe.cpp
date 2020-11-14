@@ -1,5 +1,6 @@
-#include "TicTacToe.h"
+#include "TicTacToe.hpp"
 #include <time.h>
+#include <iostream>
 
 TicTacToe::TicTacToe()
 {
@@ -20,3 +21,33 @@ TicTacToe::TicTacToe()
     
     victory = 0;    //set victory to false
  }
+
+bool TicTacToe::add(int x, int y)
+{
+    // if there is at least one ball to remove, remove ball from bottom of the pole
+    if (field[y][x].size() > 0) {
+        field[y][x].push_back(teamSide);
+        actionsLeft--;
+        checkVictory();
+
+        if ((getVictory() == 0) || (actionsLeft == 0)) 
+        {
+            changeTurn();
+        }
+    }
+}
+
+bool TicTacToe::remove(int x, int y)
+{
+    // if there are not already three balls in the pole, add ball to top
+    if (field[y][x].size() < 3) {
+        field[y][x].pop_front();
+        actionsLeft--;
+        checkVictory();
+
+        if ((getVictory() == 0) || (actionsLeft == 0)) 
+        {
+            changeTurn();
+        }
+    }
+}
