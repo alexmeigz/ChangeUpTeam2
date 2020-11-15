@@ -49,30 +49,45 @@ bool TicTacToe::remove(int x, int y)
         return true;
     } else return false;
 }
-
-int TicTacToe::checkVictoryHorizontal(int teamSide){
-  int point = 0;
-  for(int y = 0; y <= 2; y = y + 1){
-    for(int z = 0; z <= (field[y][0].size()-1); z = z + 1){
-      if(field[y][0][z] == teamSide){
-        if(field[y][1].size() >= (z + 1) && field[y][1][z] == teamSide){
-          if(field[y][2].size() >= (z + 1) && field[y][2][z] == teamSide){
-            point = point + 1;
+*/
+int TicTacToe::checkVictoryHorizontal(int teamSide)
+{
+    for(int y = 0; y <= 2; y = y + 1){
+      for(int x = 0; x <= 2; x = x + 1){
+        if(field[y][x].empty()){
+          field[y][x].push_back(0);
+        }
+      }
+    }
+    int point = 0;
+    for(int y = 0; y <= 2; y = y + 1){
+      for(int z = 0; z <= (field[y][0].size()-1); z = z + 1){
+        if(field[y][0][z] == teamSide){
+          if(field[y][1].size() >= (z + 1) && field[y][1][z] == teamSide){
+            if(field[y][2].size() >= (z + 1) && field[y][2][z] == teamSide){
+              point = point + 1;
+            }
           }
         }
       }
     }
-  }
-  for(int x = 0; x <= 2; x = x + 1){
-    for(int z = 0; z <= (field[0][x].size()-1); z = z + 1){
-      if(field[0][x][z] == teamSide){
-        if(field[1][x].size() >= (z + 1) && field[1][x][z] == teamSide){
-          if(field[2][x].size() >= (z + 1) && field[2][x][z] == teamSide){
-            point = point + 1;
+    for(int x = 0; x <= 2; x = x + 1){
+      for(int z = 0; z <= (field[0][x].size()-1); z = z + 1){
+        if(field[0][x][z] == teamSide){
+          if(field[1][x].size() >= (z + 1) && field[1][x][z] == teamSide){
+            if(field[2][x].size() >= (z + 1) && field[2][x][z] == teamSide){
+              point = point + 1;
+            }
           }
         }
       }
     }
-  }
-  return point;
+    for(int y = 0; y <= 2; y = y + 1){
+      for(int x = 0; x <= 2; x = x + 1){
+        if(field[y][x].size() == 1 && field[y][x][0] == 0){
+          field[y][x].pop_front();
+        }
+      }
+    }
+    return point;
 }
