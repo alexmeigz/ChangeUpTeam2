@@ -49,7 +49,7 @@ bool TicTacToe::remove(int x, int y)
         return true;
     } else return false;
 }
-*/
+
 int TicTacToe::checkVictoryHorizontal(int teamSide)
 {
     for(int y = 0; y <= 2; y = y + 1){
