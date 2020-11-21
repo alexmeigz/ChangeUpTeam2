@@ -88,6 +88,7 @@ void TicTacToe:viewAll()
 		for (int j = 0; j < 3; j++) {
 			for (int k = 0; k < 3; k++) {
 				hold[count] = field[i][j][k];
+				count++;
 			}
 		}
 	}
