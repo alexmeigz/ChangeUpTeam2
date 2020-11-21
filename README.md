@@ -15,5 +15,3 @@ Team *xos*:
 ## Development style guide
 
 - Use tabs for indentation as opposed to spaces
-- Minh Bui
-- Neil Balch
