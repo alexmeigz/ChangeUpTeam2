@@ -2,8 +2,7 @@
 
 Team *xos*:
 
-- Minh Bui
-- Neil Balch
+- Use tabs for indentation as opposed to spaces
 - Shivani Sista
 - Vedad Bassari
 - Erin DeLong
