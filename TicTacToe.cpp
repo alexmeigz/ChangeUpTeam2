@@ -82,7 +82,7 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 
 void TicTacToe:viewAll()
 {
-    \\ Prints out the field 
+	\\ Prints out the field
 	std::cout << "    " << field[2][0][2] << " --- " << field[2][1][2] << " --- " << field[2][2][2] << std::endl;
 	std::cout << "   /     /     /|" << std::endl;
 	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
