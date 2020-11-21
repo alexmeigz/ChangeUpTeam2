@@ -81,6 +81,28 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 	return point;
 }
 
+int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical columns; 9 for bottom to top.
+{
+    int numItems = 0, numVictory = 0;
+    for (int y = 0; y < 3; y++) // loop through y coordinates
+    {
+        for (int x = 0; x < 3; x++) // loop through x coordinates
+        {
+            for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
+            {
+                if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
+                {
+                    numItems++; // increment number of items
+                }
+            }
+            if (numItems == 3) // check if number of items is equal to 3
+            {
+                numVictory++; // if so, increment number of victories
+            }
+        } // x
+    } // y
+    return numVictory; // return number of victories (total possible = 9)
+}
 
 void TicTacToe::viewAll()
 {
@@ -89,7 +111,7 @@ void TicTacToe::viewAll()
 	std::cout << "   /     /     /|" << std::endl;
 	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
 	std::cout << " /     /     /  |" << std::endl;
-	std::cout << field[0][0][2] << " --- " << filed[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
+	std::cout << field[0][0][2] << " --- " << field[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
 	std::cout << "|               |" << std::endl;
 	std::cout << "|   " << field[2][0][1] << " --- " << field[2][1][1] << " --- " << field[2][2][1] << std::endl;
 	std::cout << "|  /     /     /|" << std::endl;
