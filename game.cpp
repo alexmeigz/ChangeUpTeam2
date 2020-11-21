@@ -6,46 +6,50 @@ TicTacToe gameBoard; //initialize game
 
 // Validates a user-input and calls the applicable TicTacToe functions.
 void checkInput(std::string userInput)
-{	using namespace std;
+{	
+	using namespace std;
 	int length = userInput.size();
-    
-    for (int i = 0; i < length; i++) { //removes spaces from userInput
-        if (userInput[i] == ' ') { 
-            userInput.erase(userInput.begin() + i); 
-        } 
-    } 
+	
+	for (int i = 0; i < length; i++) { //removes spaces from userInput
+		if (userInput[i] == ' ') { 
+			userInput.erase(userInput.begin() + i); 
+		} 
+	} 
 
-    string command = userInput.substr(0, 2); // get first 2 characters (should be ad or rm)
-    string coordinates = userInput.substr(userInput.length() - 2); // get last two characters
-    char xCoordinate = coordinates[0];
-    char yCoordinate = coordinates[1];
+	string command = userInput.substr(0, 2); // get first 2 characters (should be ad or rm)
+	string coordinates = userInput.substr(userInput.length() - 2); // get last two characters
+	char xCoordinate = coordinates[0];
+	char yCoordinate = coordinates[1];
 
-    if (isdigit(xCoordinate) and isdigit(yCoordinate) and userInput.size() == 4) { //checks that the last two characters are numbers and that userInput has no other non-space characters  
-        int x = (xCoordinate - '0'); //converts char to int
-        int y = (yCoordinate - '0');
+	if (isdigit(xCoordinate) && isdigit(yCoordinate) && userInput.size() == 4) { //checks that the last two characters are numbers and that userInput has no other non-space characters  
+		int x = (xCoordinate - '0'); //converts char to int
+		int y = (yCoordinate - '0');
 
-        if ((2 < x) ||(x < 0) || (2 < y) || (y < 0)) { //checks that values of x and y are 0, 1, or 2, otherwise exits the function
-            cout << "Invalid Input";
-            return;
-        }
+		if ((3 < x) || (x < 1) || (3 < y) || (y < 1)) { //checks that values of x and y are 1, 2, or 3 otherwise exits the function
+			cout << "Invalid Input";
+			return;
+		}
 
-        if (command == "ad") {
-            add(x, y); 
-        }
+		if (command == "ad") {
+			if (! gameBoard.add(x - 1, y - 1)) {
+				cout << "You cannot add to this stack" << endl;
+			}
+		}
 
-        else if (command == "rm") {
-            remove(x, y); 
-        } 
+		else if (command == "rm") { 
+			if (! gameBoard.remove(x - 1, y - 1)) {
+				cout << "There is nothing to remove" << endl;
+			}
+		} 
 
-        else { 
-            cout << "Invalid Input" << endl;
-        } 
-    }
+		else { 
+			cout << "Invalid Input" << endl;
+		} 
+	}
 
-    else {
-        cout << "Invalid Input";
-    }
-
+	else {
+		cout << "Invalid Input";
+	}
 }
 
 int main()
