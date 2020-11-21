@@ -4,17 +4,17 @@
 
 TicTacToe::TicTacToe()
 {
-    srand(time(NULL));  // initialize random number generator
+    	srand(time(NULL));  // initialize random number generator
 
-    // use random condition to determine the first player
-    if (rand()>(RAND_MAX/2)) {
-        teamSide = 1;       // team blue plays first
-    } else {
-        teamSide = -1;      // team red plays first
-    }
+	// use random condition to determine the first player
+    	if (rand()>(RAND_MAX/2)) {
+        	teamSide = 1;       // team blue plays first
+    	} else {
+        	teamSide = -1;      // team red plays first
+    	}
 
-    actionsLeft = 2;    // set number of actions in the first turn
-    victory = 0;    //set victory to false
+    	actionsLeft = 2;    // set number of actions in the first turn
+    	victory = 0;    //set victory to false
  }
 
 bool TicTacToe::add(int x, int y)
@@ -80,9 +80,9 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 }
 
 
-void TicTacToe:viewAll()
+void TicTacToe::viewAll()
 {
-	\\ Prints out the field with relevant integers
+	// Prints out the field with relevant integers
 	std::cout << "    " << field[2][0][2] << " --- " << field[2][1][2] << " --- " << field[2][2][2] << std::endl;
 	std::cout << "   /     /     /|" << std::endl;
 	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
