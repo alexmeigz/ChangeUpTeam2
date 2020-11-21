@@ -26,29 +26,14 @@ class TicTacToe
 			return actionsLeft;
 			//I think that the actionsLeft should be changed when the functions add and remove are called
 		} // Minh
-		int getTeamSide() {
-			//the teamSide should be changed using the changeTurn function. I can't really do anything here
-			return teamSide;
-		} // Minh
-		int getVictory() {
-			return victory;
-		}
+		int getTeamSide();
+			//the teamSide should be changed using the changeTurn function. I can't really do anything here // Minh
+		int getVictory();
 
 	private:
 		// These functions should only be called from within this class.
 		void changeTurn(); //Phillip
-		void checkVictory() {
-			int blue = 1,red = -1,blue_points,red_points;
-			blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
-			red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
-			if(blue_points == 4) {
-				victory = 1;
-			}
-			else if(red_points = 4) {
-				victory = -1;
-			}		
-			
-		}
+		void checkVictory(); //Minh
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
 		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
 		int checkVictoryVertical(int teamSide); // (Shivani) check all (9) vertical rows; 9 for bottom to top.
