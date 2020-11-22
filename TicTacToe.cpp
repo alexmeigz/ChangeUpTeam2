@@ -128,22 +128,40 @@ int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical colu
 
 void TicTacToe::viewAll()
 {
-	// Prints out the field with relevant team integers
-	std::cout << "    " << field[2][0][2] << " --- " << field[2][1][2] << " --- " << field[2][2][2] << std::endl;
+	int hold[27];   //create array to hold field integers
+	int count = 0;  //create counter to store integers in the array
+	for (int i = 0; i < 3; i++) {
+	//loop through the field and store integers
+		for (int j = 0; j < 3; j++) {
+			int l = field[i][j].size();
+			for (int k = 0; k < 3; k++) {
+				if(k<l){
+					hold[count] = field[i][j][k];
+				}
+				else{
+					hold[count] = 0;
+				}
+				count++;	//updating the counter
+			}
+		}
+	}
+	
+	//Prints out the field
+	std::cout << "    " << hold[20] << " --- " << hold[23] << " --- " << hold[26] << std::endl;
 	std::cout << "   /     /     /|" << std::endl;
-	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
+	std::cout << "  " << hold[11] << " --- " << hold[14] << " --- " << hold[17] << " |" << std::endl;
 	std::cout << " /     /     /  |" << std::endl;
-	std::cout << field[0][0][2] << " --- " << field[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
+	std::cout << hold[2] << " --- " << hold[5] << " --- " << hold[8] << "   |" << std::endl;
 	std::cout << "|               |" << std::endl;
-	std::cout << "|   " << field[2][0][1] << " --- " << field[2][1][1] << " --- " << field[2][2][1] << std::endl;
+	std::cout << "|   " << hold[19] << " --- " << hold[22] << " --- " << hold[25] << std::endl;
 	std::cout << "|  /     /     /|" << std::endl;
-	std::cout << "| " << field[1][0][1] << " --- " << field[1][1][1] << " --- " << field[1][2][1] << " |" << std::endl;
+	std::cout << "| " << hold[10] << " --- " << hold[13] << " --- " << hold[16] << " |" << std::endl;
 	std::cout << "|/     /     /  |" << std::endl;
-	std::cout << field[0][0][1] << " --- " << field[0][1][1] << " --- " << field[0][2][1] << "   |" << std::endl;
+	std::cout << hold[1] << " --- " << hold[4] << " --- " << hold[7] << "   |" << std::endl;
 	std::cout << "|               |" << std::endl;
-	std::cout << "|   " << field[2][0][0] << " --- " << field[2][1][0] << " --- " << field[2][2][0] << std::endl;
+	std::cout << "|   " << hold[18] << " --- " << hold[21] << " --- " << hold[24] << std::endl;
 	std::cout << "|  /     /     / " << std::endl;
-	std::cout << "| " << field[1][0][0] << " --- " << field[1][1][0] << " --- " << field[1][2][0] << "  " << std::endl;
+	std::cout << "| " << hold[9] << " --- " << hold[12] << " --- " << hold[15] << "  " << std::endl;
 	std::cout << "|/     /     /   " << std::endl;
-	std::cout << field[0][0][0] << " --- " << field[0][1][0] << " --- " << field[0][2][0] << "    " << std::endl;
+	std::cout << hold[0] << " --- " << hold[3] << " --- " << hold[6] << "    " << std::endl;
 }
