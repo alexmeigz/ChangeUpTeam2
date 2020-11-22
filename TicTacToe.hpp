@@ -24,16 +24,18 @@ class TicTacToe
 		bool add(int x, int y); // Anushka
 		bool remove(int x, int y); // Anushka
 
-		int getActionsLeft(); // Minh
-		int getTeamSide(); // Minh
-		int getVictory() {
-			return victory;
+		int getActionsLeft() {
+			return actionsLeft;
+			//I think that the actionsLeft should be changed when the functions add and remove are called
 		}
+		int getTeamSide(); // Minh
+		int getVictory(); // Minh
 
 	private:
 		// These functions should only be called from within this class.
 		void changeTurn(); // Phillip
 		void checkVictory(); // Minh
+
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
 		int checkVictoryHorizontal(int teamSide); // (Sean) check all (18) horizontal rows; 9 for left to right, 9 for front to back.
 		int checkVictoryVertical(int teamSide); // (Shivani) check all (9) vertical rows; 9 for bottom to top.
