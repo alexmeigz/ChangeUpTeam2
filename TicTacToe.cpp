@@ -131,14 +131,15 @@ void TicTacToe::viewAll()
 	int hold[27];   //create array to hold field integers
 	int count = 0;  //create counter to store integers in the array
 	for (int i = 0; i < 3; i++) {
-	//loop through the fieldand store integers
+	//loop through the field and store integers
 		for (int j = 0; j < 3; j++) {
+			int l = field[i][j].size()
 			for (int k = 0; k < 3; k++) {
-				if (field[i][j][k]) {
+				if(k<l){
 					hold[count] = field[i][j][k];
 				}
 				else{
-					hold[count] = 0; //accounting for empty values in the que
+					hold[count] = 0;
 				}
 				count++;	//updating the counter
 			}
