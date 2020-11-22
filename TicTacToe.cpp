@@ -128,29 +128,6 @@ int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical colu
 
 void TicTacToe::viewAll()
 {
-	// Prints out the field with relevant team integers
-	std::cout << "    " << field[2][0][2] << " --- " << field[2][1][2] << " --- " << field[2][2][2] << std::endl;
-	std::cout << "   /     /     /|" << std::endl;
-	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
-	std::cout << " /     /     /  |" << std::endl;
-	std::cout << field[0][0][2] << " --- " << field[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
-	std::cout << "|               |" << std::endl;
-	std::cout << "|   " << field[2][0][1] << " --- " << field[2][1][1] << " --- " << field[2][2][1] << std::endl;
-	std::cout << "|  /     /     /|" << std::endl;
-	std::cout << "| " << field[1][0][1] << " --- " << field[1][1][1] << " --- " << field[1][2][1] << " |" << std::endl;
-	std::cout << "|/     /     /  |" << std::endl;
-	std::cout << field[0][0][1] << " --- " << field[0][1][1] << " --- " << field[0][2][1] << "   |" << std::endl;
-	std::cout << "|               |" << std::endl;
-	std::cout << "|   " << field[2][0][0] << " --- " << field[2][1][0] << " --- " << field[2][2][0] << std::endl;
-	std::cout << "|  /     /     / " << std::endl;
-	std::cout << "| " << field[1][0][0] << " --- " << field[1][1][0] << " --- " << field[1][2][0] << "  " << std::endl;
-	std::cout << "|/     /     /   " << std::endl;
-	std::cout << field[0][0][0] << " --- " << field[0][1][0] << " --- " << field[0][2][0] << "    " << std::endl;
-}
-
-
-void TicTacToe::viewAll()
-{
 	int hold[26];   //create array to hold field integers
 	int count = 0;  //create counter to store integers in the array
 	for (int i = 0; i < 3; i++) {
