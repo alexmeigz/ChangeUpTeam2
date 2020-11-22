@@ -4,79 +4,148 @@
 
 TicTacToe::TicTacToe()
 {
-    srand(time(NULL));  // initialize random number generator
+	srand(time(NULL));  // initialize random number generator
 
 	// use random condition to determine the first player
-    if (rand()>(RAND_MAX/2)) {
-       	teamSide = 1;       // team blue plays first
-   	} else {
-       	teamSide = -1;      // team red plays first
-   	}
+	if (rand()>(RAND_MAX/2)) {
+		teamSide = 1;       // team blue plays first
+	} else {
+		teamSide = -1;      // team red plays first
+	}
 
-   	actionsLeft = 2;    // set number of actions in the first turn
-   	victory = 0;    //set victory to false
- }
+	actionsLeft = 2;    // set number of actions in the first turn
+	victory = 0;    //set victory to false
+}
 
 bool TicTacToe::add(int x, int y)
 {
-    // if there are not already three balls in the pole, add ball to top
-    if (field[y][x].size() < 3) {
-        field[y][x].push_back(teamSide);
-        actionsLeft--;
-        checkVictory();
+	// if there are not already three balls in the pole, add ball to top
+	if (field[y][x].size() < 3) {
+		field[y][x].push_back(teamSide);
+		actionsLeft--;
+		checkVictory();
 
-        if ((getVictory() == 0) && (actionsLeft == 0))
-        {
-            changeTurn();
-        }
+		if ((getVictory() == 0) && (actionsLeft == 0))
+		{
+			changeTurn();
+		}
 
-        return true;
-    } else return false;
+		return true;
+	} else return false;
 }
 
 bool TicTacToe::remove(int x, int y)
 {
-    // if there is at least one ball to remove, remove ball from bottom of the pole
-    if (field[y][x].size() > 0) {
-        field[y][x].pop_front();
-        actionsLeft--;
-        checkVictory();
+	// if there is at least one ball to remove, remove ball from bottom of the pole
+	if (field[y][x].size() > 0) {
+		field[y][x].pop_front();
+		actionsLeft--;
+		checkVictory();
 
-        if ((getVictory() == 0) && (actionsLeft == 0))
-        {
-            changeTurn();
-        }
+		if ((getVictory() == 0) && (actionsLeft == 0))
+		{
+			changeTurn();
+		}
 
-        return true;
-    } else return false;
+		return true;
+	} else return false;
+}
+
+int TicTacToe::getTeamSide() {
+    return teamSide;
+}
+
+int TicTacToe::getVictory() {
+    return victory;
+}
+
+void TicTacToe::checkVictory() {
+    int blue = 1,red = -1,blue_points,red_points;
+    blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
+    red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+    if(blue_points > 3) {
+        victory = 1;
+    }
+    else if(red_points > 3) {
+        victory = -1;
+    }
+    else{
+        victory = 0;
+    }
 }
 
 int TicTacToe::checkVictoryHorizontal(int teamSide)
 {
-    int point = 0;
-    for(int y = 0; y <= 2; y = y + 1){
-      for(int z = 0; z < field[y][0].size(); z = z + 1){
-        if(field[y][0][z] == teamSide){
-          if(field[y][1].size() >= (z + 1) && field[y][1][z] == teamSide){
-            if(field[y][2].size() >= (z + 1) && field[y][2][z] == teamSide){
-              point = point + 1;
+	int point = 0;
+	for(int y = 0; y <= 2; y = y + 1){
+		for(int z = 0; z < field[y][0].size(); z = z + 1){
+			if(field[y][0][z] == teamSide){
+				if(field[y][1].size() >= (z + 1) && field[y][1][z] == teamSide){
+					if(field[y][2].size() >= (z + 1) && field[y][2][z] == teamSide){
+						point = point + 1;
+					}
+				}
+			}
+		}
+	}
+
+	for(int x = 0; x <= 2; x = x + 1){
+		for(int z = 0; z < field[0][x].size(); z = z + 1){
+			if(field[0][x][z] == teamSide){
+				if(field[1][x].size() >= (z + 1) && field[1][x][z] == teamSide){
+					if(field[2][x].size() >= (z + 1) && field[2][x][z] == teamSide){
+						point = point + 1;
+					}
+				}
+			}
+		}
+	}
+	return point;
+}
+
+int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical columns; 9 for bottom to top.
+{
+    int numItems = 0, numVictory = 0;
+    for (int y = 0; y < 3; y++) // loop through y coordinates
+    {
+        for (int x = 0; x < 3; x++) // loop through x coordinates
+        {
+            for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
+            {
+                if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
+                {
+                    numItems++; // increment number of items
+                }
             }
-          }
-        }
-      }
-    }
-    for(int x = 0; x <= 2; x = x + 1){
-      for(int z = 0; z < field[0][x].size(); z = z + 1){
-        if(field[0][x][z] == teamSide){
-          if(field[1][x].size() >= (z + 1) && field[1][x][z] == teamSide){
-            if(field[2][x].size() >= (z + 1) && field[2][x][z] == teamSide){
-              point = point + 1;
+            if (numItems == 3) // check if number of items is equal to 3
+            {
+                numVictory++; // if so, increment number of victories
             }
-          }
-        }
-      }
-    }
-    return point;
+        } // x
+    } // y
+    return numVictory; // return number of victories (total possible = 9)
+}
+
+void TicTacToe::viewAll()
+{
+	// Prints out the field with relevant team integers
+	std::cout << "    " << field[2][0][2] << " --- " << field[2][1][2] << " --- " << field[2][2][2] << std::endl;
+	std::cout << "   /     /     /|" << std::endl;
+	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
+	std::cout << " /     /     /  |" << std::endl;
+	std::cout << field[0][0][2] << " --- " << field[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
+	std::cout << "|               |" << std::endl;
+	std::cout << "|   " << field[2][0][1] << " --- " << field[2][1][1] << " --- " << field[2][2][1] << std::endl;
+	std::cout << "|  /     /     /|" << std::endl;
+	std::cout << "| " << field[1][0][1] << " --- " << field[1][1][1] << " --- " << field[1][2][1] << " |" << std::endl;
+	std::cout << "|/     /     /  |" << std::endl;
+	std::cout << field[0][0][1] << " --- " << field[0][1][1] << " --- " << field[0][2][1] << "   |" << std::endl;
+	std::cout << "|               |" << std::endl;
+	std::cout << "|   " << field[2][0][0] << " --- " << field[2][1][0] << " --- " << field[2][2][0] << std::endl;
+	std::cout << "|  /     /     / " << std::endl;
+	std::cout << "| " << field[1][0][0] << " --- " << field[1][1][0] << " --- " << field[1][2][0] << "  " << std::endl;
+	std::cout << "|/     /     /   " << std::endl;
+	std::cout << field[0][0][0] << " --- " << field[0][1][0] << " --- " << field[0][2][0] << "    " << std::endl;
 }
 
 
