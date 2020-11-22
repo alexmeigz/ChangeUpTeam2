@@ -133,7 +133,7 @@ void TicTacToe::viewAll()
 	for (int i = 0; i < 3; i++) {
 	//loop through the field and store integers
 		for (int j = 0; j < 3; j++) {
-			int l = field[i][j].size()
+			int l = field[i][j].size();
 			for (int k = 0; k < 3; k++) {
 				if(k<l){
 					hold[count] = field[i][j][k];
