@@ -30,16 +30,16 @@ int TicTacToe::getVictory() {
 }
 
 void TicTacToe::checkVictory() {
-	int blue = 1,red = -1,blue_points,red_points;
-	blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
-	red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
-	if(blue_points > 3) {
-            	victory = 1;
-	}
-	else if(red_points > 3) {
-		victory = -1;
-	}
-        else{
-		victory = 0;
-	} 
+    int blue = 1,red = -1,blue_points,red_points;
+    blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
+    red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+    if(blue_points > 3) {
+        victory = 1;
+    }
+    else if(red_points > 3) {
+        victory = -1;
+    }
+    else{
+        victory = 0;
+    } 
 }
