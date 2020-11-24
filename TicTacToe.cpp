@@ -128,7 +128,7 @@ int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical colu
 
 void TicTacToe::viewAll()
 {
-	int hold[27];   //create array to hold field integers
+	char hold[27];   //create array to hold field integers
 	int count = 0;  //create counter to store integers in the array
 	for (int i = 0; i < 3; i++) {
 	//loop through the field and store integers
@@ -136,10 +136,15 @@ void TicTacToe::viewAll()
 			int l = field[i][j].size();
 			for (int k = 0; k < 3; k++) {
 				if(k<l){
-					hold[count] = field[i][j][k];
+					if(field[i][j][k])==1){
+						hold[count] = 'B';
+					}
+					else{
+						hold[count] = 'R'	
+					}	
 				}
 				else{
-					hold[count] = 0;
+					hold[count] = 'N';
 				}
 				count++;	//updating the counter
 			}
