@@ -150,7 +150,7 @@ void TicTacToe::viewAll()
 			}
 		}
 	}
-	
+
 	//Prints out the field
 	std::cout << "    " << hold[20] << " --- " << hold[23] << " --- " << hold[26] << std::endl;
 	std::cout << "   /     /     /|" << std::endl;
@@ -169,4 +169,10 @@ void TicTacToe::viewAll()
 	std::cout << "| " << hold[9] << " --- " << hold[12] << " --- " << hold[15] << "  " << std::endl;
 	std::cout << "|/     /     /   " << std::endl;
 	std::cout << hold[0] << " --- " << hold[3] << " --- " << hold[6] << "    " << std::endl;
+}
+
+
+void TicTacToe::changeTurn(){
+	actionsLeft = 3;
+	teamSide = teamSide * (-1);
 }
