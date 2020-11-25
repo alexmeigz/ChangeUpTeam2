@@ -13,7 +13,7 @@ void checkInput(std::string userInput)
 	int y = userInput[2] - '0';
 
 	if((3 < x) || (x < 1) || (3 < y) || (y < 1)) { //checks that values of x and y are 1, 2, or 3 otherwise exits the function
-		cout << "cordinate out of range";
+		cout << "coordinate out of range" << endl;
 		return;
 	}
 
