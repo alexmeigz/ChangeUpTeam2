@@ -1,4 +1,4 @@
-#Input Syntax:
+### Input Syntax:
 	command Xcor Ycor
 	example: a22, add a ball at the center of the field
 			 a31, add a ball at the bottom right corner
