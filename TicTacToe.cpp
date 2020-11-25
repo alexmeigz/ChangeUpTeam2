@@ -60,9 +60,13 @@ int TicTacToe::getVictory() {
 }
 
 void TicTacToe::checkVictory() {
+	using namespace std;
 	int blue = 1,red = -1,blue_points,red_points;
 	blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
 	red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+	cout << "TEAM Horizontal Vertical Diagonal" << endl;
+	cout << "BLUE: " << checkVictoryHorizontal(blue) << "  " << checkVictoryVertical(blue) << "  " << checkVictoryDiagonal(blue) << endl;
+	cout << "RED: " << checkVictoryHorizontal(red) << "  " << checkVictoryVertical(red) << "  " << checkVictoryDiagonal(red) << endl;
 	if(blue_points > 3) {
 		victory = 1;
 	}
@@ -105,11 +109,12 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 
 int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical columns; 9 for bottom to top.
 {
-	int numItems = 0, numVictory = 0;
+	int numVictory = 0;
 	for (int y = 0; y < 3; y++) // loop through y coordinates
 	{
 		for (int x = 0; x < 3; x++) // loop through x coordinates
 		{
+			int numItems = 0;
 			for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
 			{
 				if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
@@ -202,11 +207,11 @@ void TicTacToe::viewAll()
 			int l = field[i][j].size();
 			for (int k = 0; k < 3; k++) {
 				if(k<l){
-					if(field[i][j][k])==1){
+					if(field[i][j][k]==1){
 						hold[count] = 'B';
 					}
 					else{
-						hold[count] = 'R'	
+						hold[count] = 'R';
 					}	
 				}
 				else{
