@@ -52,26 +52,26 @@ bool TicTacToe::remove(int x, int y)
 }
 
 int TicTacToe::getTeamSide() {
-    return teamSide;
+	return teamSide;
 }
 
 int TicTacToe::getVictory() {
-    return victory;
+	return victory;
 }
 
 void TicTacToe::checkVictory() {
-    int blue = 1,red = -1,blue_points,red_points;
-    blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
-    red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
-    if(blue_points > 3) {
-        victory = 1;
-    }
-    else if(red_points > 3) {
-        victory = -1;
-    }
-    else{
-        victory = 0;
-    }
+	int blue = 1,red = -1,blue_points,red_points;
+	blue_points = checkVictoryHorizontal(blue) + checkVictoryDiagonal(blue) + checkVictoryVertical(blue);
+	red_points = checkVictoryHorizontal(red) + checkVictoryDiagonal(red) + checkVictoryVertical(red);
+	if(blue_points > 3) {
+		victory = 1;
+	}
+	else if(red_points > 3) {
+		victory = -1;
+	}
+	else{
+		victory = 0;
+	}
 }
 
 int TicTacToe::checkVictoryHorizontal(int teamSide)
@@ -105,25 +105,91 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 
 int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical columns; 9 for bottom to top.
 {
-    int numItems = 0, numVictory = 0;
-    for (int y = 0; y < 3; y++) // loop through y coordinates
-    {
-        for (int x = 0; x < 3; x++) // loop through x coordinates
-        {
-            for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
-            {
-                if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
-                {
-                    numItems++; // increment number of items
-                }
-            }
-            if (numItems == 3) // check if number of items is equal to 3
-            {
-                numVictory++; // if so, increment number of victories
-            }
-        } // x
-    } // y
-    return numVictory; // return number of victories (total possible = 9)
+	int numItems = 0, numVictory = 0;
+	for (int y = 0; y < 3; y++) // loop through y coordinates
+	{
+		for (int x = 0; x < 3; x++) // loop through x coordinates
+		{
+			for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
+			{
+				if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
+				{
+					numItems++; // increment number of items
+				}
+			}
+			if (numItems == 3) // check if number of items is equal to 3
+			{
+				numVictory++; // if so, increment number of victories
+			}
+		} // x
+	} // y
+	return numVictory; // return number of victories (total possible = 9)
+}
+
+int TicTacToe::checkVictoryDiagonal(int teamSide)
+{
+	using namespace std;
+	int count = 0;
+	int frontBack = 0;
+	int leftRight = 0;
+	int sameLayer = 0;
+	for(int i = 0; i < 3; i++)
+	{
+		if(field[0][i].size() > 0 && field[1][i].size() > 1 && field[2][i].size() > 2 && teamSide == field[0][i][0] && teamSide == field[1][i][1] && teamSide == field[2][i][2])
+		{
+			frontBack++;
+		}
+		if(field[0][i].size() > 2 && field[1][i].size() > 1 && field[2][i].size() > 0 && teamSide == field[0][i][2] && teamSide == field[1][i][1] && teamSide == field[2][i][0])
+		{
+			frontBack++;
+		}
+	}
+	//cout << "Front Back: " << frontBack << endl;
+	count += frontBack;
+	for(int i = 0; i < 3; i++)
+	{
+		if(field[i][0].size() > 0 && field[i][1].size() > 1 && field[i][2].size() > 2 && teamSide == field[i][0][0] && teamSide == field[i][1][1] && teamSide == field[i][2][2])
+		{
+			leftRight++;
+		}
+		if(field[i][0].size() > 2 && field[i][1].size() > 1 && field[i][2].size() > 0 && teamSide == field[i][0][2] && teamSide == field[i][1][1] && teamSide == field[i][2][0])
+		{
+			leftRight++;
+		}
+	}
+	//cout << "Left Right: " << leftRight << endl;
+	count += leftRight;
+	for(int i = 0; i < 3; i++)
+	{
+		if(field[0][0].size() > i && field[1][1].size() > i && field[2][2].size() > i && teamSide == field[0][0][i] && teamSide == field[1][1][i] && teamSide == field[2][2][i])
+		{
+			sameLayer++;
+		}
+		if(field[2][0].size() > i && field[1][1].size() > i && field[0][2].size() > i && teamSide == field[2][0][i] && teamSide == field[1][1][i] && teamSide == field[0][2][i])
+		{
+			sameLayer++;
+		}
+	}
+	//cout << "Same Layer Diagonal: " << sameLayer << endl;
+	count += sameLayer;
+
+	if(field[0][0].size() > 0 && field[1][1].size() > 1 && field[2][2].size() > 2 && teamSide == field[0][0][0] && teamSide == field[1][1][1] && teamSide == field[2][2][2])
+	{
+		count++;
+	}
+	if(field[0][0].size() > 2 && field[1][1].size() > 1 && field[2][2].size() > 0 && teamSide == field[0][0][2] && teamSide == field[1][1][1] && teamSide == field[2][2][0])
+	{
+		count++;
+	}
+	if(field[2][0].size() > 0 && field[1][1].size() > 1 && field[0][2].size() > 2 && teamSide == field[2][0][0] && teamSide == field[1][1][1] && teamSide == field[0][2][2])
+	{
+		count++;
+	}
+	if(field[2][0].size() > 2 && field[1][1].size() > 1 && field[0][2].size() > 0 && teamSide == field[2][0][2] && teamSide == field[1][1][1] && teamSide == field[0][2][0])
+	{
+		count++;
+	}
+	return count;
 }
 
 void TicTacToe::viewAll()
