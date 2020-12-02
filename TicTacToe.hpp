@@ -33,7 +33,7 @@ class TicTacToe
 
 	private:
 		// These functions should only be called from within this class.
-		void changeTurn(); // Phillip
+		void changeTurn(); // Sean
 		void checkVictory(); // Minh
 
 		// Below three functions will be called within checkVictory(); take teamID as parameter to count score for that team; return socre.
