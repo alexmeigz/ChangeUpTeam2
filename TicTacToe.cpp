@@ -105,11 +105,12 @@ int TicTacToe::checkVictoryHorizontal(int teamSide)
 
 int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical columns; 9 for bottom to top.
 {
-	int numItems = 0, numVictory = 0;
+	int numVictory = 0;
 	for (int y = 0; y < 3; y++) // loop through y coordinates
 	{
 		for (int x = 0; x < 3; x++) // loop through x coordinates
 		{
+            int numItems = 0; // initialize to 0
 			for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
 			{
 				if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
