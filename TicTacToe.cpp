@@ -89,7 +89,7 @@ void TicTacToe::viewAll()
 	std::cout << "   /     /     /|" << std::endl;
 	std::cout << "  " << field[1][0][2] << " --- " << field[1][1][2] << " --- " << field[1][2][2] << " |" << std::endl;
 	std::cout << " /     /     /  |" << std::endl;
-	std::cout << field[0][0][2] << " --- " << filed[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
+	std::cout << field[0][0][2] << " --- " << field[0][1][2] << " --- " << field[0][2][2] << "   |" << std::endl;
 	std::cout << "|               |" << std::endl;
 	std::cout << "|   " << field[2][0][1] << " --- " << field[2][1][1] << " --- " << field[2][2][1] << std::endl;
 	std::cout << "|  /     /     /|" << std::endl;
@@ -102,4 +102,30 @@ void TicTacToe::viewAll()
 	std::cout << "| " << field[1][0][0] << " --- " << field[1][1][0] << " --- " << field[1][2][0] << "  " << std::endl;
 	std::cout << "|/     /     /   " << std::endl;
 	std::cout << field[0][0][0] << " --- " << field[0][1][0] << " --- " << field[0][2][0] << "    " << std::endl;
+}
+
+void TicTacToe::viewTop() {
+ 	   for (int y = 2; y >= 0; y--) {
+        for (int x = 0; x < 3; x++) {
+            std::deque<int> square = field[y][x];
+            int size = square.size();
+						int value = square[2]; // will be 1 (blue) or -1 (red) or 0 (empty)
+						if (value == 1){
+								std::cout << "b";
+						}
+						else if (value == -1) {
+								std::cout << "r";
+						}
+						else if (value == 0) {
+							std::cout << "x";
+						}
+            else {
+							std::cout << "?";
+						}  
+
+            
+            std::cout << " ";
+        }
+        std::cout << "\n";
+    }
 }
