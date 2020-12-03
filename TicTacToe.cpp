@@ -107,9 +107,9 @@ void TicTacToe::viewAll()
 void TicTacToe::viewTop() {
  	   for (int y = 2; y >= 0; y--) {
         for (int x = 0; x < 3; x++) {
-            std::deque<int> square = field[y][x];
-            int size = square.size();
-						int value = square[2]; // will be 1 (blue) or -1 (red) or 0 (empty)
+            std::deque<int>* square = &field[y][x];
+            int size = square->size();
+						int value = square->at(2); // will be 1 (blue) or -1 (red) or 0 (empty)
 						if (value == 1){
 								std::cout << "b";
 						}
@@ -121,9 +121,7 @@ void TicTacToe::viewTop() {
 						}
             else {
 							std::cout << "?";
-						}  
-
-            
+						}   
             std::cout << " ";
         }
         std::cout << "\n";
