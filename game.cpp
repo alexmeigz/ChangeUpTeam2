@@ -15,41 +15,34 @@ void checkInput(std::string userInput)
 			userInput.erase(userInput.begin() + i); 
 		} 
 	} 
+	if (! userInput.size() == 3) { //checks that userInput has no other non-space characters 
+		cout << "Invalid Input - make sure there are no extra characters " << endl;
+		return;	
+	}
 
-	string command = userInput.substr(0, 1); // get first character (should be a or r)
+	char command = userInput[0]; // get first character (should be a or r)
 	string coordinates = userInput.substr(userInput.length() - 2); // get last two characters
-	char xCoordinate = coordinates[0];
-	char yCoordinate = coordinates[1];
+	int x = userInput[1] - '0';
+  int y = userInput[2] - '0';
 
-	if (isdigit(xCoordinate) && isdigit(yCoordinate) && userInput.size() == 3) { //checks that the last two characters are numbers and that userInput has no other non-space characters  
-		int x = (xCoordinate - '0'); //converts char to int
-		int y = (yCoordinate - '0');
-
-		if ((3 < x) || (x < 1) || (3 < y) || (y < 1)) { //checks that values of x and y are 1, 2, or 3 otherwise exits the function
-			cout << "Invalid Input - coordinates can only be 1, 2, or 3";
-			return;
-		}
-
-		if (command == "a") {
-			if (! gameBoard.add(x - 1, y - 1)) {
-				cout << "You cannot add to this stack" << endl;
-			}
-		}
-
-		else if (command == "r") { 
-			if (! gameBoard.remove(x - 1, y - 1)) {
-				cout << "There is nothing to remove" << endl;
-			}
-		} 
-
-		else { 
-			cout << "Invalid Input- command must be 'a' or 'r'" << endl;
-		} 
+	if ((3 < x) || (x < 1) || (3 < y) || (y < 1)) { //checks that values of x and y are 1, 2, or 3 otherwise exits the function
+		cout << "Invalid Input - coordinates can only be 1, 2, or 3" << endl;
+		return;
 	}
 
-	else {
-		cout << "Invalid Input" << endl;
+	if (command == 'a') {
+		if (! gameBoard.add(x - 1, y - 1)) {
+			cout << "You cannot add to this stack" << endl;
+		}
 	}
+	else if (command == 'r') { 
+		if (! gameBoard.remove(x - 1, y - 1)) {
+			cout << "There is nothing to remove" << endl;
+		}
+	} 
+	else { 
+		cout << "Invalid Input- command must be 'a' or 'r'" << endl;
+	} 
 }
 
 int main()

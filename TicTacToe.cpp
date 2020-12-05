@@ -249,7 +249,14 @@ void TicTacToe::viewTop() {
         for (int x = 0; x < 3; x++) {
             std::deque<int>* square = &field[y][x];
             int size = square->size();
-						int value = square->at(2); // will be 1 (blue) or -1 (red) or 0 (empty)
+						int value;
+						if (size < 3) {
+							value == 0;
+						}
+						else {
+							 value = square->at(2); // will be 1 (blue) or -1 (red) or 0 (empty)
+						}
+						
 						if (value == 1){
 								std::cout << "b";
 						}
