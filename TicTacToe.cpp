@@ -15,6 +15,7 @@ TicTacToe::TicTacToe()
 
 	actionsLeft = 2;    // set number of actions in the first turn
 	victory = 0;    //set victory to false
+	removedBall = false;	//player has not removed any ball at the beginning of a game
 }
 
 bool TicTacToe::add(int x, int y)
@@ -37,9 +38,10 @@ bool TicTacToe::add(int x, int y)
 bool TicTacToe::remove(int x, int y)
 {
 	// if there is at least one ball to remove, remove ball from bottom of the pole
-	if (field[y][x].size() > 0) {
+	if (!removedBall && field[y][x].size() > 0) {
 		field[y][x].pop_front();
 		actionsLeft--;
+		removedBall = true;
 		checkVictory();
 
 		if ((getVictory() == 0) && (actionsLeft == 0))
@@ -110,7 +112,7 @@ int TicTacToe::checkVictoryVertical(int teamSide) // check all (9) vertical colu
 	{
 		for (int x = 0; x < 3; x++) // loop through x coordinates
 		{
-            int numItems = 0; // initialize to 0
+			int numItems = 0; // initialize to 0
 			for (int item = 0; item < field[y][x].size(); item++) // loop through each individual item in the column
 			{
 				if (field[y][x][item] == teamSide) // check if the value of the item is equal to the teamID (-1 or 1)
@@ -238,10 +240,10 @@ void TicTacToe::viewAll()
 	std::cout << hold[0] << " --- " << hold[3] << " --- " << hold[6] << "    " << std::endl;
 }
 
-
 void TicTacToe::changeTurn(){
 	actionsLeft = 3;
 	teamSide = teamSide * (-1);
+	removedBall = false;
 }
 
 void TicTacToe::viewTop() {
