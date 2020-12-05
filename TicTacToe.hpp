@@ -55,4 +55,7 @@ class TicTacToe
 
 		// Stores whether or not there has been a victory and which team has won.
 		int victory;
+
+		//Check if already removed a ball in this turn
+		bool removedBall;
 };

@@ -25,12 +25,12 @@ void checkInput(std::string userInput)
 
 	if (command == 'a') {
 		if (! gameBoard.add(x - 1, y - 1)) {
-			cout << "You cannot add to this stack" << endl;
+			cout << "Add failed" << endl;
 		}
 	}
 	else if (command == 'r') { 
 		if (! gameBoard.remove(x - 1, y - 1)) {
-			cout << "There is nothing to remove" << endl;
+			cout << "Remove failed" << endl;
 		}
 	} 
 	else { 
@@ -51,15 +51,13 @@ int main()
 			std::cout << "Your command red! ";
 
 		std::cout << "You have " << gameBoard.getActionsLeft() << " actions left in your turn." << std::endl;
-		std::cout << "Remember to input a command in the format \"[ACTION] [COORD]\""
-									"where [ACTION] is either \"ad\" or \"rm\" and [COORD] is a"
-									"comma-separated list of integers from 0-2." << std::endl;
 
 		std::string input;
 		std::cin >> input; // "action" "X Cor" "Y Cor"; no leading space; one space between each parmater; ad stands for "add", rm stands for "remove"
 		checkInput(input);
 	}
 
+	gameBoard.viewAll();
 	std::cout << (gameBoard.getVictory() == 1 ? "Blue" : "Red") << "wins!" << std::endl;
 	return 1;
 }
