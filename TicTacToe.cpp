@@ -206,7 +206,7 @@ void TicTacToe::viewAll()
 					if(field[i][j][k]==1){
 						hold[count] = 'B';
 					}
-					else {
+					else{
 						hold[count] = 'R';
 					}	
 				}
@@ -245,32 +245,31 @@ void TicTacToe::changeTurn(){
 }
 
 void TicTacToe::viewTop() {
- 	   for (int y = 2; y >= 0; y--) {
-        for (int x = 0; x < 3; x++) {
-            std::deque<int>* square = &field[y][x];
-            int size = square->size();
-						int value;
-						if (size < 3) {
-							value == 0;
-						}
-						else {
-							 value = square->at(2); // will be 1 (blue) or -1 (red) or 0 (empty)
-						}
-						
-						if (value == 1){
-								std::cout << "b";
-						}
-						else if (value == -1) {
-								std::cout << "r";
-						}
-						else if (value == 0) {
-							std::cout << "x";
-						}
-            else {
-							std::cout << "?";
-						}   
-            std::cout << " ";
-        }
-        std::cout << "\n";
-    }
+	for (int y = 2; y >= 0; y--) {
+		for (int x = 0; x < 3; x++) {
+			int value;
+
+			if (field[y][x].size() == 0) {
+				value = 0;
+			}
+			else {
+				value = field[y][x].back(); // will be 1 (blue) or -1 (red) or 0 (empty)
+			}
+			
+			if (value == 1) {
+				std::cout << "b";
+			}
+			else if (value == -1) {
+				std::cout << "r";
+			}
+			else if (value == 0) {
+				std::cout << "x";
+			}
+			else {
+				std::cout << "?";
+			}   
+			std::cout << " ";
+		}
+		std::cout << "\n";
+	}
 }

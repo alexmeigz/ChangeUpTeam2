@@ -8,22 +8,15 @@ TicTacToe gameBoard; //initialize game
 void checkInput(std::string userInput)
 {	
 	using namespace std;
-	int length = userInput.size();
 	
-	for (int i = 0; i < length; i++) { //removes spaces from userInput
-		if (userInput[i] == ' ') { 
-			userInput.erase(userInput.begin() + i); 
-		} 
-	} 
-	if (! userInput.size() == 3) { //checks that userInput has no other non-space characters 
+	if (userInput.size() != 3) { //checks that userInput has no other non-space characters 
 		cout << "Invalid Input - make sure there are no extra characters " << endl;
 		return;	
 	}
 
 	char command = userInput[0]; // get first character (should be a or r)
-	string coordinates = userInput.substr(userInput.length() - 2); // get last two characters
 	int x = userInput[1] - '0';
-  int y = userInput[2] - '0';
+	int y = userInput[2] - '0';
 
 	if ((3 < x) || (x < 1) || (3 < y) || (y < 1)) { //checks that values of x and y are 1, 2, or 3 otherwise exits the function
 		cout << "Invalid Input - coordinates can only be 1, 2, or 3" << endl;
