@@ -203,11 +203,11 @@ void TicTacToe::viewAll()
 			int l = field[i][j].size();
 			for (int k = 0; k < 3; k++) {
 				if(k<l){
-					if(field[i][j][k])==1){
+					if(field[i][j][k]==1){
 						hold[count] = 'B';
 					}
 					else{
-						hold[count] = 'R'	
+						hold[count] = 'R';
 					}	
 				}
 				else{
@@ -242,4 +242,34 @@ void TicTacToe::viewAll()
 void TicTacToe::changeTurn(){
 	actionsLeft = 3;
 	teamSide = teamSide * (-1);
+}
+
+void TicTacToe::viewTop() {
+	for (int y = 2; y >= 0; y--) {
+		for (int x = 0; x < 3; x++) {
+			int value;
+
+			if (field[y][x].size() == 0) {
+				value = 0;
+			}
+			else {
+				value = field[y][x].back(); // will be 1 (blue) or -1 (red) or 0 (empty)
+			}
+			
+			if (value == 1) {
+				std::cout << "b";
+			}
+			else if (value == -1) {
+				std::cout << "r";
+			}
+			else if (value == 0) {
+				std::cout << "x";
+			}
+			else {
+				std::cout << "?";
+			}   
+			std::cout << " ";
+		}
+		std::cout << "\n";
+	}
 }
